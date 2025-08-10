@@ -1,17 +1,12 @@
-// stats.js (без изменений)
+// stats.js
 window.addEventListener("DOMContentLoaded", () => {
   const leaderboardItems = document.getElementById("leaderboardItems");
   const userProfile = document.getElementById("userProfile");
 
-  // Функция для получения данных лидерборда (пока моковые данные)
+  // Функция для получения данных лидерборда
   const fetchLeaderboard = async () => {
     try {
-      // Здесь будет API-запрос в будущем
-      // const response = await fetch('https://your-api.com/leaderboard');
-      // const data = await response.json();
-      // return data;
-
-      // Моковые данные
+ 
       return {
         topPlayers: [
           { rank: 1, avatar: "avatar1.png", name: "PlayerOne", profit: 5000, tokens: 10000 },
