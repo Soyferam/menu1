@@ -27,8 +27,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Кнопка PLAY
   document.getElementById("playBtn").addEventListener("click", () => {
-    console.log("[Menu] Redirecting to https://z2-ji4e.vercel.app/");
-    window.location.href = "https://z2-ji4e.vercel.app/";
+    console.log("[Menu] Redirecting to https://game1-jet.vercel.app/");
+    window.location.href = "https://game1-jet.vercel.app/";
   });
 
   // Навигация по меню
