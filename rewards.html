@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ZmeiFi Rewards</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+  <script src="./js/common.js" defer></script>
+  <script src="./js/rewards.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="background-glow"></div>
+    <!-- Кнопка Back -->
+    <button class="back-btn" id="backBtn">Back</button>
+    <!-- Баланс токенов -->
+    <div class="wallet-right" id="tokenBalance">
+      <span>2937 <img class="token-icon" src="./img/token-logo.png" alt="Token"></span>
+    </div>
+    <!-- Заголовок -->
+    <h1 class="page-title">Rewards</h1>
+    <!-- Список наград -->
+    <div class="rewards-list">
+      <div class="rewards-header">
+        <span>Task</span>
+        <span>Reward</span>
+      </div>
+      <div class="rewards-scroll">
+        <div class="rewards-items" id="rewardsItems"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ZmeiFi Withdraw</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js" defer></script>
+  <script src="./js/common.js" defer></script>
+  <script src="./js/withdraw.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="background-glow"></div>
+    <!-- Кнопка Back -->
+    <button class="back-btn" id="backBtn">Back</button>
+    <!-- Заголовок -->
+    <h1 class="page-title">Withdraw</h1>
+    <!-- Форма вывода -->
+    <div class="withdraw-form">
+      <div class="balance-display">
+        <span>Available Balance: <span id="availableBalance">0</span> TON</span>
+      </div>
+      <div class="withdraw-input-group">
+        <input type="number" inputmode="decimal" step="0.01" min="0" placeholder="Amount" id="withdrawAmount" />
+        <button id="allBtn">All</button>
+      </div>
+      <button id="withdrawBtn">Withdraw</button>
+    </div>
+    <!-- Список статистики -->
+    <div class="game-stats">
+      <div class="game-stats-header">
+        <span>Game</span>
+        <span>Result</span>
+        <span>Profit</span>
+      </div>
+      <div class="game-stats-scroll">
+        <div class="game-stats-items" id="gameStatsItems"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

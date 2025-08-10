@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Loading...</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" onload="window.lottieLoaded = true;"></script>
+  <link rel="preload" href="./img/logo.png" as="image">
+  <link rel="preload" href="./img/snake-logo.png" as="image">
+  <link rel="preload" href="./css/styles.css" as="style">
+  <link rel="preload" href="./videos/guide1.mp4" as="video">
+  <link rel="preload" href="./videos/guide2.mp4" as="video">
+  <link rel="preload" href="./videos/guide3.mp4" as="video">
+  <link rel="preload" href="./videos/guide4.mp4" as="video">
+  <link rel="preload" href="./videos/guide5.mp4" as="video">
+  <style>
+    @font-face {
+      font-family: 'AntonSC';
+      src: url('../fonts/AntonSC-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Press Start 2P';
+      src: url('../fonts/PressStart2P-Regular.woff2') format('woff2'),
+           url('../fonts/PressStart2P-Regular.woff') format('woff'),
+           url('../fonts/PressStart2P-Regular.ttf') format('truetype');
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #1a1a1a;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.5s ease;
+    }
+    .loading-content {
+      text-align: center;
+      color: #fff;
+      font-family: 'AntonSC', sans-serif;
+      font-size: 24px;
+    }
+    #loading-animation {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      background: transparent;
+    }
+    .fallback-text {
+      display: none;
+      color: #ff0000;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div style="font-family: 'AntonSC', 'Press Start 2P'; position: absolute; visibility: hidden;">Preload fonts</div>
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div id="loading-animation"></div>
+      <p class="fallback-text">Animation failed to load</p>
+      <p>Ssslithering into the blockchain…</p>
+    </div>
+  </div>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      // Проверяем, загружена ли библиотека Lottie
+      if (!window.lottieLoaded || !window.lottie) {
+        console.error('Lottie library not loaded');
+        document.querySelector('.fallback-text').style.display = 'block';
+        initTelegram();
+        startLoading();
+        return;
+      }
+
+      // Инициализация Lottie-анимации
+      try {
+        const animation = lottie.loadAnimation({
+          container: document.getElementById('loading-animation'),
+          renderer: 'canvas', // Используем canvas для совместимости
+          loop: true,
+          autoplay: true,
+          path: './assets/loading.json' // Проверь путь к файлу
+        });
+
+        // Обработка ошибок загрузки анимации
+        animation.addEventListener('error', (e) => {
+          console.error('Lottie animation failed to load:', e);
+          document.querySelector('.fallback-text').style.display = 'block';
+        });
+
+        // Успешная загрузка анимации
+        animation.addEventListener('data_ready', () => {
+          console.log('Lottie animation loaded successfully');
+          initTelegram();
+        });
+      } catch (error) {
+        console.error('Lottie initialization error:', error);
+        document.querySelector('.fallback-text').style.display = 'block';
+        initTelegram();
+      }
+
+      // Функция инициализации Telegram Web App
+      function initTelegram() {
+        const tg = window.Telegram?.WebApp;
+        if (tg) {
+          tg.ready();
+          tg.expand();
+          tg.requestFullscreen?.();
+          console.log('Telegram Web App initialized');
+        } else {
+          console.log('Telegram Web App not available');
+        }
+      }
+
+      // Запуск процесса загрузки
+      function startLoading() {
+        // Ожидание загрузки всех ресурсов
+        const resources = [
+          document.fonts.ready.catch(() => console.log('Fonts failed to load')),
+          new Promise(resolve => {
+            const img1 = new Image();
+            img1.src = './img/logo.png';
+            img1.onload = resolve;
+            img1.onerror = () => {
+              console.log('logo.png failed to load');
+              resolve();
+            };
+          }),
+          new Promise(resolve => {
+            const img2 = new Image();
+            img2.src = './img/snake-logo.png';
+            img2.onload = resolve;
+            img2.onerror = () => {
+              console.log('snake-logo.png failed to load');
+              resolve();
+            };
+          }),
+          // Проверка загрузки всех видео из гайда
+          new Promise(resolve => {
+            const video1 = document.createElement('video');
+            video1.src = './videos/guide1.mp4';
+            video1.onloadeddata = resolve;
+            video1.onerror = () => {
+              console.log('guide1.mp4 failed to load');
+              resolve();
+            };
+          }),
+          new Promise(resolve => {
+            const video2 = document.createElement('video');
+            video2.src = './videos/guide2.mp4';
+            video2.onloadeddata = resolve;
+            video2.onerror = () => {
+              console.log('guide2.mp4 failed to load');
+              resolve();
+            };
+          }),
+          new Promise(resolve => {
+            const video3 = document.createElement('video');
+            video3.src = './videos/guide3.mp4';
+            video3.onloadeddata = resolve;
+            video3.onerror = () => {
+              console.log('guide3.mp4 failed to load');
+              resolve();
+            };
+          }),
+          new Promise(resolve => {
+            const video4 = document.createElement('video');
+            video4.src = './videos/guide4.mp4';
+            video4.onloadeddata = resolve;
+            video4.onerror = () => {
+              console.log('guide4.mp4 failed to load');
+              resolve();
+            };
+          }),
+          new Promise(resolve => {
+            const video5 = document.createElement('video');
+            video5.src = './videos/guide5.mp4';
+            video5.onloadeddata = resolve;
+            video5.onerror = () => {
+              console.log('guide5.mp4 failed to load');
+              resolve();
+            };
+          })
+        ];
+
+        console.log('Starting 10-second animation display');
+        Promise.race([
+          Promise.all(resources),
+          new Promise(resolve => setTimeout(resolve, 5000)) // Таймаут 10 секунд
+        ]).then(() => {
+          console.log('Resources loaded or 10 seconds elapsed, transitioning to menu.html');
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+              sessionStorage.setItem('openGuideOnLoad', 'true');
+              window.location.href = 'menu.html';
+            }, 500);
+          } else {
+            sessionStorage.setItem('openGuideOnLoad', 'true');
+            window.location.href = 'menu.html';
+          }
+        });
+      }
+
+      startLoading();
+    });
+  </script>
+</body>
+</html>

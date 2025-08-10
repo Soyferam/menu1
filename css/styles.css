@@ -1,0 +1,1606 @@
+/* === 📦 Локальные шрифты === */
+@font-face {
+  font-family: 'AntonSC';
+  src: url('../fonts/AntonSC-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('../fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+/* === 🌌 Общий фон === */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #000;
+  background-image:
+    url('./img/noise.png'),
+    radial-gradient(rgba(0, 0, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(135deg, #001428 0%, #000000 100%);
+  background-size: cover, 20px 20px, cover;
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  position: relative;
+}
+
+/* === ✨ Фон-свечение === */
+.background-glow {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0,34,85,0.4), rgba(0,0,0,0.8));
+  z-index: 0;
+}
+
+/* === 📱 Обёртка === */
+.wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* === 💳 Баланс и кошелёк === */
+.wallet-left, .wallet-right {
+  position: absolute;
+  top: 12vh; /* Синхронизировано с back-btn */
+  z-index: 10;
+}
+.wallet-left {
+  left: 5vw;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'AntonSC';
+  cursor: pointer;
+}
+.wallet-left img {
+  width: 20px;
+  margin-right: 8px;
+  user-select: none;
+}
+.wallet-right {
+  right: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wallet-right #ton-connect button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'AntonSC';
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.wallet-right#tokenBalance {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-family: 'AntonSC';
+  color: #1eff00; /* Bright green like profit-amount */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .wallet-left {
+    top: 19vh; /* Синхронизировано с back-btn */
+    left: 5vw;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .wallet-right {
+    top: 19vh; /* Синхронизировано с back-btn */
+    right: 3vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .wallet-left {
+    top: 15vh; /* Синхронизировано с back-btn */
+    left: 14vw;
+    font-size: 12px;
+  }
+  .wallet-right {
+    top: 15vh; /* Синхронизировано с back-btn */
+    right: 10vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 12px;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .wallet-left {
+    top: 8vh; /* Синхронизировано с back-btn */
+    left: 4vw;
+  }
+  .wallet-right {
+    top: 8vh; /* Синхронизировано с back-btn */
+    right: 4vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 16px;
+  }
+}
+
+/* === 🐍 Логотип ==== */
+.logo {
+  position: absolute;
+  top: 19vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 260px;
+  height: auto;
+  z-index: 10;
+}
+
+/* === 💰 Ввод TON === */
+.amount-input {
+  position: absolute;
+  top: 47vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 70vw;
+  max-width: 340px;
+}
+.amount-input input {
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  outline: none;
+  font-family: 'Press Start 2P';
+}
+
+/* === ▶️ Кнопка PLAY === */
+.btn-play {
+  position: absolute;
+  top: 52vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  padding: 10px 50px; /* Increased padding to accommodate text */
+  font-size: 28px;
+  font-family: 'AntonSC';
+  letter-spacing: 5px;
+  color: #fff !important;
+  cursor: pointer;
+  z-index: 10;
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-align: center; /* Ensure text is centered */
+}
+
+/* === 📋 Кнопки меню === */
+.menu-buttons {
+  position: absolute;
+  top: 70vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px 14px;
+  width: 90vw;
+  max-width: 360px;
+  padding: 0 10px;
+  z-index: 10;
+}
+.menu-buttons button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: 'AntonSC';
+  color: #fff !important;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+  min-width: 90px;
+  max-width: 140px;
+  white-space: nowrap;
+}
+
+/* === 📈 Блок профита === */
+.profit-box {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4vh;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-width: 280px;
+  max-width: 95%;
+  box-sizing: border-box;
+  z-index: 100;
+  font-family: 'Press Start 2P';
+}
+
+.profit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left; /* Выравнивание текста слева */
+  width: 100%; /* Гарантирует одинаковую ширину для строк */
+}
+
+.profit-line,
+.tokens-line {
+  font-size: 14px;
+  white-space: nowrap;
+  line-height: 1.2; /* Одинаковая высота строки */
+}
+
+.profit-amount,
+.profit-percent,
+.token-amount {
+  color: #1eff00;
+  margin-left: 4px; /* Одинаковый отступ для цветных элементов */
+}
+
+.token-icon {
+  width: 27px; /* Размер изображения, соответствует шрифту */
+  height: 27px;
+  vertical-align: middle; /* Выравнивание по центру текста */
+  margin-left: 4px; /* Тот же отступ, что у других элементов */
+  display: inline-block; /* Для корректного выравнивания */
+}
+
+.share-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.share-btn small {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* === 📱 Маленькие экраны === */
+@media (max-width: 400px), (max-height: 650px) {
+  .wallet-left {
+    top: 19vh; /* Синхронизировано с back-btn */
+    left: 5vw;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .wallet-right {
+    top: 19vh; /* Синхронизировано с back-btn */
+    right: 3vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .logo {
+    top: 17vh;
+    width: 50vw;
+    max-width: 200px;
+  }
+  .amount-input {
+    top: 48vh;
+    width: 59vw;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+  .btn-play {
+    top: 55vh;
+    font-size: 28px;
+    padding: 10px 40px;
+  }
+  .menu-buttons {
+    top: 70vh;
+  }
+  .profit-line, .tokens-line {
+    font-size: 12px;
+  }
+}
+
+#loading-animation {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+}
+
+/* === 🌐 iPad Pro / iPhone X === */
+@media (min-width: 820px) and (max-width: 1024px) and (orientation: portrait) {
+  .logo {
+    top: 10vh;
+    max-width: 300px;
+  }
+  .amount-input {
+    top: 40vh;
+    width: 60vw;
+  }
+  .btn-play {
+    top: 50vh;
+    font-size: 34px;
+  }
+  .menu-buttons {
+    top: 62vh;
+  }
+  .profit-box {
+    bottom: 4vh;
+  }
+}
+
+@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .logo {
+    top: 15vh;
+  }
+  .amount-input {
+    top: 45vh;
+    width: 65vw;
+  }
+  .btn-play {
+    top: 52vh;
+  }
+}
+
+/* === 🌐 Горизонтальный режим === */
+@media (orientation: landscape) and (max-height: 600px) {
+  html, body {
+    background-image: url('./img/noise.png'), radial-gradient(#00f 1px, transparent 1px), linear-gradient(135deg, #001428 0%, #000000 100%);
+  }
+  .wallet-left {
+    top: 15vh;
+    left: 14vw;
+    font-size: 12px;
+  }
+  .wallet-right {
+    top: 15vh;
+    right: 10vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 12px;
+  }
+  .logo {
+    top: 2vh;
+    width: 15vw;
+  }
+  .amount-input {
+    top: 38vh;
+  }
+  .btn-play {
+    top: 50vh;
+    font-size: 28px;
+    padding: 10px 40px;
+  }
+  .menu-buttons {
+    top: 70vh;
+    left: 50vw;
+  }
+  .profit-box {
+    bottom: 67vh;
+    left: 18vw;
+    padding: 5px 5px;
+  }
+}
+
+/* === 💻 Десктопы === */
+@media (min-width: 1024px) {
+  .wallet-left {
+    top: 8vh;
+    left: 4vw;
+  }
+  .wallet-right {
+    top: 8vh;
+    right: 4vw;
+  }
+  .wallet-right#tokenBalance {
+    font-size: 16px;
+  }
+  .amount-input {
+    top: 55vh;
+  }
+  .btn-play {
+    top: 60vh;
+    font-size: 48px;
+  }
+  .logo {
+    top: 5vh;
+    max-width: 450px;
+  }
+  .menu-buttons {
+    top: 75vh;
+  }
+  .profit-box {
+    bottom: 2vh;
+  }
+}
+
+/* === ❌ Предупреждение о горизонтальной ориентации === */
+.landscape-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+  font-size: 16px;
+  font-family: 'AntonSC';
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1000;
+  padding: 20px;
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .landscape-warning {
+    display: none;
+  }
+}
+
+/* === 🧭 Guide Modal (Liquid Glass Style) === */
+.guide-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.guide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 15px;
+  width: 80%;
+  max-width: 340px;
+  max-height: 70vh;
+  overflow-y: auto;
+  color: #fff;
+  font-family: 'Press Start 2P';
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-sizing: border-box;
+}
+
+.guide-slide {
+  display: none;
+}
+
+.guide-slide.active {
+  display: block;
+}
+
+.guide-slide img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.guide-slide video {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.guide-slide p {
+  font-size: 12px;
+  margin: 0 0 15px 0;
+  color: #fff !important;
+}
+
+.guide-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+  min-height: 36px;
+}
+
+.guide-back {
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-family: 'AntonSC' !important;
+  color: #fff !important;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px !important;
+  min-width: 70px;
+  height: 36px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.guide-next {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-family: 'AntonSC' !important;
+  color: #fff !important;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px !important;
+  min-width: 70px;
+  height: 36px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.guide-back[style*="display: none"], .guide-next[style*="display: none"] {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.guide-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #fff;
+}
+
+.guide-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff !important;
+  font-family: 'AntonSC';
+}
+
+/* === 🔙 Кнопка Back === */
+.back-btn {
+  position: absolute;
+  top: 12vh;
+  left: 5vw;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-family: 'AntonSC';
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .back-btn {
+    top: 19vh;
+    left: 5vw;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .back-btn {
+    top: 15vh;
+    left: 14vw;
+    font-size: 12px;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .back-btn {
+    top: 8vh;
+    left: 4vw;
+  }
+}
+
+/* === 📜 Заголовок страницы === */
+.page-title {
+  position: absolute;
+  top: 18vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'AntonSC';
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 4px;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .page-title {
+    top: 19vh;
+    font-size: 18px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .page-title {
+    top: 15vh;
+    font-size: 18px;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .page-title {
+    top: 8vh;
+    font-size: 28px;
+  }
+}
+
+/* === 📜 Список наград (rewards.html) === */
+.rewards-list {
+  position: absolute;
+  top: 28vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.rewards-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  font-family: 'AntonSC';
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rewards-scroll {
+  max-height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.5);
+}
+
+.rewards-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rewards-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.rewards-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.rewards-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.reward-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.reward-item:last-child {
+  border-bottom: none;
+}
+
+.reward-task {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;
+  font-family: 'AntonSC';
+}
+
+.reward-button {
+  background: #00cc00;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-family: 'AntonSC';
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.reward-button:hover {
+  background: #00a300;
+}
+
+.reward-button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .rewards-list {
+    top: 25vh;
+    width: 90%;
+    font-size: 12px;
+  }
+  .rewards-header {
+    font-size: 14px;
+  }
+  .reward-task {
+    font-size: 10px;
+  }
+  .reward-button {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .rewards-list {
+    top: 20vh;
+    width: 70%;
+  }
+  .rewards-scroll {
+    max-height: 40vh;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .rewards-list {
+    top: 20vh;
+    max-width: 400px;
+  }
+  .rewards-header {
+    font-size: 18px;
+  }
+  .reward-task {
+    font-size: 14px;
+  }
+  .reward-button {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+/* === 📊 Лидерборд (stats.html) === */
+.leaderboard {
+  position: absolute;
+  top: 28vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px; /* Компактный размер текста */
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 40px 40px 1fr 70px 70px; /* Колонки: Rank, Avatar, Name (гибкая), Profit, Tokens */
+  gap: 8px; /* Отступы между колонками */
+  padding: 8px 12px;
+  font-family: "AntonSC";
+  font-size: 14px; /* Уменьшенный размер заголовков */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  align-items: center;
+}
+
+.leaderboard-header span {
+  white-space: nowrap; /* Предотвращает перенос текста в заголовке */
+  overflow: hidden; /* Обрезает длинный текст */
+  text-overflow: ellipsis; /* Добавляет многоточие для длинного текста */
+}
+
+.leaderboard-scroll {
+  max-height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.5);
+}
+
+.leaderboard-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaderboard-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.leaderboard-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.leaderboard-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Отступ между строками */
+  padding: 10px 0;
+}
+
+.leaderboard-item {
+  display: grid;
+  grid-template-columns: 40px 40px 1fr 70px 70px; /* Та же структура, что в заголовке */
+  gap: 8px; /* Отступы между колонками */
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  min-height: 40px; /* Минимальная высота строки */
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+.avatar {
+  width: 28px; /* Компактная аватарка */
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover; /* Аватарка не искажается */
+  vertical-align: middle;
+}
+
+.rank {
+  font-family: "AntonSC";
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.name {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Обрезает длинные имена */
+}
+
+.profit,
+.tokens {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap; /* Предотвращает перенос чисел */
+  overflow: hidden; /* Обрезает длинные значения */
+}
+
+.user-profile {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-profile .leaderboard-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .leaderboard {
+    top: 25vh;
+    width: 90%;
+    font-size: 10px;
+  }
+  .leaderboard-header {
+    font-size: 12px;
+    grid-template-columns: 35px 35px 1fr 60px 60px; /* Уменьшенные колонки */
+    gap: 6px;
+    padding: 6px 10px;
+  }
+  .leaderboard-item {
+    grid-template-columns: 35px 35px 1fr 60px 60px;
+    gap: 6px;
+    padding: 6px 10px;
+    min-height: 36px;
+  }
+  .avatar {
+    width: 24px;
+    height: 24px;
+  }
+  .rank,
+  .name,
+  .profit,
+  .tokens {
+    font-size: 10px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .leaderboard {
+    top: 20vh;
+    width: 70%;
+  }
+  .leaderboard-scroll {
+    max-height: 40vh;
+  }
+  .leaderboard-header {
+    grid-template-columns: 40px 40px 1fr 65px 65px;
+    gap: 8px;
+  }
+  .leaderboard-item {
+    grid-template-columns: 40px 40px 1fr 65px 65px;
+    gap: 8px;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .leaderboard {
+    top: 20vh;
+    max-width: 400px;
+  }
+  .leaderboard-header {
+    font-size: 16px;
+    grid-template-columns: 50px 50px 1fr 80px 80px;
+    gap: 10px;
+  }
+  .leaderboard-item {
+    grid-template-columns: 50px 50px 1fr 80px 80px;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .rank,
+  .name,
+  .profit,
+  .tokens {
+    font-size: 14px;
+  }
+}
+
+/* === 💸 Форма вывода (withdraw.html) === */
+.withdraw-form {
+  position: absolute;
+  top: 28vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.balance-display {
+  font-family: "AntonSC";
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.withdraw-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.withdraw-form input {
+  flex: 1; /* Поле ввода занимает оставшееся пространство */
+  max-width: 70%; /* Укороченное поле ввода */
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.withdraw-form button#allBtn {
+  width: 30%; /* Кнопка "All" занимает меньше места */
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.withdraw-form button#allBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.withdraw-form button#withdrawBtn {
+  width: 100%;
+  padding: 10px;
+  background: #00cc00;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.withdraw-form button#withdrawBtn:hover {
+  background: #00a300;
+}
+
+/* === 📊 Статистика игр (withdraw.html) === */
+.game-stats {
+  position: absolute;
+  top: 55vh; /* Расположен ниже формы вывода */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.game-stats-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px; /* Game, Result, Profit */
+  gap: 8px;
+  padding: 8px 12px;
+  font-family: "AntonSC";
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  align-items: center;
+}
+
+.game-stats-header span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-stats-scroll {
+  max-height: 30vh; /* Ограниченная высота для прокрутки */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.5);
+}
+
+.game-stats-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.game-stats-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.game-stats-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.game-stats-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.game-stats-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px; /* Game, Result, Profit */
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  min-height: 36px;
+}
+
+.game-stats-item:last-child {
+  border-bottom: none;
+}
+
+.game-id {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.result {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.result.win {
+  color: #1eff00;
+}
+
+.result.loss {
+  color: #ff4d4d;
+}
+
+.profit {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.profit.positive {
+  color: #1eff00;
+}
+
+.profit.negative {
+  color: #ff4d4d;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .withdraw-form {
+    top: 25vh;
+    width: 90%;
+    font-size: 10px;
+  }
+  .balance-display {
+    font-size: 12px;
+  }
+  .withdraw-form input {
+    font-size: 10px;
+  }
+  .withdraw-form button {
+    font-size: 12px;
+  }
+  .game-stats {
+    top: 52vh;
+    width: 90%;
+    font-size: 10px;
+  }
+  .game-stats-header {
+    font-size: 12px;
+    grid-template-columns: 60px 1fr 80px;
+    gap: 6px;
+    padding: 6px 10px;
+  }
+  .game-stats-item {
+    grid-template-columns: 60px 1fr 80px;
+    gap: 6px;
+    padding: 6px 10px;
+    min-height: 32px;
+  }
+  .game-id,
+  .result,
+  .profit {
+    font-size: 10px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .withdraw-form {
+    top: 20vh;
+    width: 70%;
+  }
+  .game-stats {
+    top: 50vh;
+    width: 70%;
+  }
+  .game-stats-scroll {
+    max-height: 25vh;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .withdraw-form {
+    top: 20vh;
+    max-width: 400px;
+  }
+  .balance-display {
+    font-size: 16px;
+  }
+  .withdraw-form input {
+    font-size: 14px;
+  }
+  .withdraw-form button {
+    font-size: 16px;
+  }
+  .game-stats {
+    top: 50vh;
+    max-width: 400px;
+  }
+  .game-stats-header {
+    font-size: 16px;
+    grid-template-columns: 100px 1fr 120px;
+    gap: 10px;
+  }
+  .game-stats-item {
+    grid-template-columns: 100px 1fr 120px;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+  .game-id,
+  .result,
+  .profit {
+    font-size: 14px;
+  }
+}
+
+/* === 🤝 Реферальная система (referral.html) === */
+.referral-box {
+  position: absolute;
+  top: 28vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+}
+
+.referral-box input {
+  flex: 1;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.referral-box button {
+  width: 80px;
+  padding: 8px;
+  background: #00cc00;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.referral-box button:hover {
+  background: #00a300;
+}
+
+.referrals {
+  position: absolute;
+  top: 45vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 340px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  font-family: "AntonSC";
+  font-size: 12px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.referrals-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px; /* Avatar, Name, Profit */
+  gap: 8px;
+  padding: 8px 0; /* Убраны боковые отступы для точного выравнивания */
+  font-family: "AntonSC";
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  align-items: center;
+}
+
+.referrals-header span:nth-child(1) {
+  text-align: center; /* Avatar */
+}
+
+.referrals-header span:nth-child(2) {
+  text-align: left; /* Name */
+}
+
+.referrals-header span:nth-child(3) {
+  text-align: right; /* Profit */
+}
+
+.referrals-scroll {
+  max-height: 40vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.5);
+}
+
+.referrals-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.referrals-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.referrals-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.referrals-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.referrals-item {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px; /* Точно соответствует заголовкам */
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0; /* Убраны боковые отступы */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 36px;
+}
+
+.referrals-item:last-child {
+  border-bottom: none;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profit {
+  font-family: "AntonSC";
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+  color: #1eff00;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 400px), (max-height: 650px) {
+  .referral-box {
+    top: 25vh;
+    width: 90%;
+    font-size: 10px;
+  }
+  .referral-box input {
+    font-size: 10px;
+    padding: 6px;
+  }
+  .referral-box button {
+    font-size: 10px;
+    padding: 6px;
+    width: 60px;
+  }
+  .referrals {
+    top: 42vh;
+    width: 90%;
+    font-size: 10px;
+  }
+  .referrals-header {
+    font-size: 12px;
+    grid-template-columns: 35px 1fr 60px;
+    gap: 6px;
+    padding: 6px 0;
+  }
+  .referrals-item {
+    grid-template-columns: 35px 1fr 60px;
+    gap: 6px;
+    padding: 6px 0;
+    min-height: 32px;
+  }
+  .avatar {
+    width: 24px;
+    height: 24px;
+  }
+  .name,
+  .profit {
+    font-size: 10px;
+  }
+}
+
+/* Горизонтальный режим */
+@media (orientation: landscape) and (max-height: 600px) {
+  .referral-box {
+    top: 20vh;
+    width: 70%;
+  }
+  .referrals {
+    top: 40vh;
+    width: 70%;
+  }
+  .referrals-scroll {
+    max-height: 35vh;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .referral-box {
+    top: 20vh;
+    max-width: 400px;
+  }
+  .referral-box input {
+    font-size: 14px;
+  }
+  .referral-box button {
+    font-size: 14px;
+    width: 100px;
+  }
+  .referrals {
+    top: 40vh;
+    max-width: 400px;
+  }
+  .referrals-header {
+    font-size: 16px;
+    grid-template-columns: 50px 1fr 100px;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .referrals-item {
+    grid-template-columns: 50px 1fr 100px;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .name,
+  .profit {
+    font-size: 14px;
+  }
+  
+}
