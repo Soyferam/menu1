@@ -1,6 +1,6 @@
 // common.js
 window.addEventListener("DOMContentLoaded", () => {
-  // ✅ Telegram WebApp
+  // Telegram WebApp
   const tg = window.Telegram?.WebApp;
   if (tg) {
     tg.ready();
@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log("[Common] Telegram WebApp initialized");
   }
 
-  // 📤 Share кнопка (если поддерживается)
+  // Share кнопка (если поддерживается)
   const shareBtn = document.getElementById("shareBtn");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🔙 Кнопка Back
+  // Кнопка Back
   const backBtn = document.getElementById("backBtn");
   if (backBtn) {
     backBtn.addEventListener("click", () => {

@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // ✅ Telegram WebApp
+  // Telegram WebApp
   const tg = window.Telegram?.WebApp;
   if (tg) {
     tg.ready();
@@ -19,19 +19,19 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log("[Menu] Telegram WebApp initialized");
   }
 
-  // ✅ TonConnect UI
+  // TonConnect UI
   new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: "https://z-ten-iota.vercel.app/tonconnect-manifest.json",
     buttonRootId: "ton-connect",
   });
 
-  // ▶️ Кнопка PLAY
+  // Кнопка PLAY
   document.getElementById("playBtn").addEventListener("click", () => {
     console.log("[Menu] Redirecting to https://z2-ji4e.vercel.app/");
     window.location.href = "https://z2-ji4e.vercel.app/";
   });
 
-  // 🧭 Навигация по меню
+  // Навигация по меню
   const btnRewards = document.getElementById("btnRewards");
   if (btnRewards) {
     btnRewards.onclick = () => {
@@ -72,7 +72,7 @@ window.addEventListener("DOMContentLoaded", () => {
     console.error("[Menu] btnReferral not found");
   }
 
-  // 📤 Share кнопка
+  // Share кнопка
   const shareBtn = document.getElementById("shareBtn");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 👀 Скрыть/показать блок профита
+  // Скрыть/показать блок профита
   const profitBox = document.getElementById("profitBox");
   const depositInput = document.getElementById("depositInput");
   if (profitBox && depositInput) {
@@ -104,7 +104,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🧭 Guide functionality (оставлено как есть)
+  // Guide functionality (оставлено как есть)
   const guideModal = document.getElementById('guideModal');
   const guideClose = document.getElementById('guideClose');
   const guideSlides = document.querySelectorAll('.guide-slide');
